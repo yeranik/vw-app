@@ -14,7 +14,55 @@
   </head>
   <body>
     <div class="container">
-      <h1>hello world</h1>
+      <div class="row">
+        <div class="col-6 text-center">
+          <h1>New York</h1>
+          <img
+            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fweather_1779780&psig=AOvVaw1ZSoS25kKRocxxX09EgKsc&ust=1693242508319000&source=images&cd=vfe&opi=89978449&ved=0CA4QjRxqFwoTCPCp1Yaq_YADFQAAAAAdAAAAABAI"
+            alt=""
+            width="52px"
+            height="52"
+            id="icon-Main"
+          />
+          <div class="temperature" id="temp">28°</div>
+          <span class="units">
+            <a href="#" id="celsius-Link" class="active">C°</a>|
+            <a href="#" id="farenheit-link">F°</a>
+          </span>
+
+          <div class="weather-information">
+            <ul>
+              <li>
+                <span id="date">Friday 05:00</span>,
+                <span id="des">clear sky</span>
+              </li>
+              <li>
+                Humidity: <strong>85%</strong>, Wind:
+                <strong id="wind-Speed">2.7 km/h</strong>
+              </li>
+            </ul>
+          </div>
+          <form id="search-form">
+            <div class="d-flex justify-content-center">
+              <div class="d-inline-flex p-2">
+                <input
+                  class="form-control form-control-sm"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Enter city"
+                  id="enter-City"
+                />
+
+                <input
+                  class="btn btn-primary btn-sm"
+                  type="submit"
+                  value="search"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>
