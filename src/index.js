@@ -17,28 +17,30 @@ let day = days[now.getDay()];
 date.innerHTML = `${day} ${hours}:${minutes}`;
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
+  forecast.forEach(function (forecastDay) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="weatherForecastPreview p-3">
+          <div class="forecast-day">${forecastDay.time}</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
+              alt=""
+              width="52px"
+              height="52"
+              />
+              <div class="forecast-temperature">
+              <span class="forecast-temperature-max">${forecastDay.temperature.maximum}°</span><span class="forecast-temperature-min"> ${forecastDay.temperature.minimum}°</span>
+              </div>
+          </div>
+        </div>`;
 
-  forecastHTML =
-    forecastHTML +
-    `
-      <div class="weatherForecastPreview p-3">
-        <div class="forecast-day"> mon</div>
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-            alt=""
-            width="52px"
-            height="52"
-            />
-            <div class="forecast-temperature">
-            <span class="forecast-temperature-max"> 19°</span><span class="forecast-temperature-min"> 15°</span>
-            </div>
-        </div>
-      </div>`;
-
-  forecastElement.innerHTML = forecastHTML;
+    forecastElement.innerHTML = forecastHTML;
+  });
 }
 
 function getForecast(coordinates) {
