@@ -49,10 +49,6 @@ small a {
   text-align: center;
 }
 
-.col-4 {
-  width: 80px;
-}
-
 .temperature {
   color: #212121;
   font-size: 55px;

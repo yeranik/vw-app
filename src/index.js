@@ -16,6 +16,39 @@ let day = days[now.getDay()];
 
 date.innerHTML = `${day} ${hours}:${minutes}`;
 
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
+
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="weatherForecastPreview p-3">
+        <div class="forecast-day"> mon</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+            alt=""
+            width="52px"
+            height="52"
+            />
+            <div class="forecast-temperature">
+            <span class="forecast-temperature-max"> 19°</span><span class="forecast-temperature-min"> 15°</span>
+            </div>
+        </div>
+      </div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b42f62837taf0ecb256c3b1a678caof5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   let temp = Math.round(response.data.temperature.current);
   let tempElement = document.querySelector("#temp");
@@ -33,7 +66,10 @@ function showTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   humidityElement.innerHTML = response.data.temperature.humidity;
+
+  getForecast(response.data.coordinates);
 }
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#enter-City");
