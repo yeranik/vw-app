@@ -49,6 +49,10 @@ small a {
   text-align: center;
 }
 
+.col-4 {
+  width: 80px;
+}
+
 .temperature {
   color: #212121;
   font-size: 55px;
@@ -59,6 +63,9 @@ small a {
   margin-bottom: 20px;
 }
 
+.units a {
+  color: #885df1;
+}
 .iconCanvas {
   margin: 10px 0;
   height: 80px;
@@ -81,4 +88,20 @@ small a {
   font-size: 16px;
   font-weight: 700;
   display: inline-block;
+}
+
+.d-inline-flex {
+  margin-top: 30px;
+}
+.forecast-temperature {
+  color: #f65282;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.forecast-temperature-min {
+  margin-left: 10px;
+  opacity: 0.6;
 }
