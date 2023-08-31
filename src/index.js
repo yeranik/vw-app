@@ -28,12 +28,13 @@ function displayForecast(response) {
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = "";
+  let forecastHTML = '<div class = "d-flex flex-row bd-highlight mb-3">';
   forecast.forEach(function (forecastDay, index) {
-    if (index < 3) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
+      <div class = "d-flex flex-row bd-highlight mb-3">  
         <div class="weatherForecastPreview p-3">
           <div class="forecast-day">${formatDay(forecastDay.time)}</div>
             <img
@@ -54,7 +55,7 @@ function displayForecast(response) {
           </div>
         </div>`;
 
-      forecastElement.innerHTML = forecastHTML;
+      forecastElement.innerHTML = forecastHTML + "</div>";
     }
   });
 }
