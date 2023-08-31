@@ -28,13 +28,14 @@ function displayForecast(response) {
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = '<div class = "d-flex flex-row bd-highlight mb-3">';
+  let forecastHTML = '<div class = "row justify-content-md-center">';
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
-      <div class = "d-flex flex-row bd-highlight mb-3">  
+      
+       <div class = col-sm-4"> 
         <div class="weatherForecastPreview p-3">
           <div class="forecast-day">${formatDay(forecastDay.time)}</div>
             <img
@@ -52,8 +53,10 @@ function displayForecast(response) {
           forecastDay.temperature.minimum
         )}°</span>
               </div>
-          </div>
-        </div>`;
+          </div>    
+        </div>
+      
+     `;
 
       forecastElement.innerHTML = forecastHTML + "</div>";
     }

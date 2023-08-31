@@ -33,6 +33,10 @@ small a {
   text-decoration: underline;
 }
 
+img {
+  filter: drop-shadow(0 0 0.2rem #c0bebe);
+}
+
 .container {
   margin: auto;
   padding: 20px;
@@ -84,6 +88,11 @@ small a {
   font-size: 16px;
   font-weight: 700;
   display: inline-block;
+}
+
+.col-8 {
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .d-inline-flex {
